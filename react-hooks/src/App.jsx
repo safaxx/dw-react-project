@@ -3,6 +3,8 @@ import './App.css'
 import Profile from './UseStateEg'
 import { ToggleApp } from './ToggleApp'
 import { ColorPicker } from './ColorPicker'
+import Counter from './UseEffectEg'
+import { FruitSearch } from './FruitSearch'
 
 
 function App() {
@@ -10,11 +12,14 @@ function App() {
 
   return (
     <>
-    <Profile />
-    <br/>
+    {/* <Profile /> */}
+    {/* <br/>
     <ToggleApp />
     <br/>
     <ColorPicker />
+    <Counter />
+     <br/> */}
+     <FruitSearch />
     </>
   )
 }

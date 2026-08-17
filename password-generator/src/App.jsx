@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -6,6 +6,8 @@ function App() {
   const [isNumAllowed, setIsNumAllowed] = useState(true);
   const [isCharAllowed, setIsCharAllowed] = useState(true);
   const [password, setPassword] = useState("");
+  const pswrdRef = useRef(null);
+  const [btnText, setBtnText] = useState("Copy");
 
   const handleGeneratePswrd = () => {
     let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -31,6 +33,15 @@ function App() {
     handleGeneratePswrd();
   }, [length, isCharAllowed, isNumAllowed]);
 
+  const handleCopyPswrd = () => {
+    window.navigator.clipboard.writeText(password);
+    pswrdRef.current?.select();
+    setBtnText("Copied!");
+    setTimeout(() => {
+      setBtnText("Copy");
+    }, 2000);
+  };
+
   return (
     <>
       <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
@@ -49,13 +60,15 @@ function App() {
                    outline-none border border-slate-700 
                    focus:border-indigo-500"
               readOnly
+              ref={pswrdRef}
             />
 
             <button
               className="px-4 py-3 bg-indigo-600 hover:bg-indigo-500 
                    text-white rounded-xl transition"
+              onClick={handleCopyPswrd}
             >
-              Copy
+              {btnText}
             </button>
           </div>
 

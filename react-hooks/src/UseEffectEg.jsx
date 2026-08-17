@@ -5,7 +5,7 @@ const Counter = () => {
 
   useEffect(() => {
     console.log("Component renders");
-  }, [count]);
+  });
 
   return (
     <div

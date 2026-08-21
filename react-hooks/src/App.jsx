@@ -5,6 +5,8 @@ import { ToggleApp } from './ToggleApp'
 import { ColorPicker } from './ColorPicker'
 import Counter from './UseEffectEg'
 import { FruitSearch } from './FruitSearch'
+import { CurrencyConverter } from './CurrencyConverter'
+
 
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
     <ColorPicker />
     <Counter />
      <br/> */}
-     <FruitSearch />
+     {/* <FruitSearch /> */}
+     <CurrencyConverter />
     </>
   )
 }
